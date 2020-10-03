@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Messege Decoder/Encoder</title>
-		<link rel="stylesheet" href="./resources/css/styles.css" />
+		<link rel="stylesheet" href="resources/css/style.css" />
 	</head>
 	<body>
 		<h1>Messege Decoder/Encoder</h1>
@@ -12,11 +12,74 @@
 			Choose a Cipher Tool and Type in the message you want to decode/encode
 		</p>
 		<div class="tab">
-			<button class="tablinks" onlink="openTab(event,'Rot')">Rot</button>
-			<button class="tablinks" onlink="openTab(event,'Caesar')">Caesar</button>
-			<button class="tablinks" onlink="openTab(event,'Polybius')">
+			<button class="tablinks" onclick="openTab(event,'Caesar')">Caesar</button>
+			<button class="tablinks" onclick="openTab(event,'Rot')">Rot</button>
+			<button class="tablinks" onclick="openTab(event,'Polybius')">
 				Polybius
 			</button>
 		</div>
+		<div id="Caesar" class="tabcontent" style="display: block">
+			<h2>Caesar Cipher</h2>
+			<p>
+				Tool to decrypt/encrypt with Caesar. Caesar cipher (or Caesar code) is a
+				shift cipher, one of the most easy and most famous encryption systems.
+				It uses the substitution of a letter by another one further in the
+				alphabet.
+			</p>
+			<form>
+				<label>Action</label><br />
+				<select id="caesar-action">
+					<option value="decode">Decode</option>
+					<option value="encode">Encode</option></select
+				><br />
+				<label>Shift</label><br />
+				<input
+					type="number"
+					min="1"
+					max="26"
+					id="caesar-shift"
+					value="13"
+				/><br />
+				<label>Message</label><br />
+				<textarea data-name="caesar" cols="50" rows="5" id="caesar-msg">
+Pnrfne Pvcure</textarea
+				><br />
+				<label>Result</label><br />
+				<textarea
+					data-name="caesar"
+					cols="50"
+					rows="5"
+					id="caesar-result"
+					disabled
+				></textarea>
+			</form>
+		</div>
+		<div id="Rot" class="tabcontent">
+			<h2>Rot13 Cipher</h2>
+			<p>
+				Tool to decrypt/encrypt with rot13. ROT-13 cipher is a particular case
+				of the Caesar cipher, where the shift is equal to 13, this allow the
+				cipher to be reciprocal.
+			</p>
+			<form></form>
+		</div>
+		<div id="Polybius" class="tabcontent"></div>
+		<script>
+			// ******Tabs ******************************************************
+			function openTab(evt, cipherName) {
+				let tabcontent, tablinks;
+				tabcontent = document.getElementsByClassName('tabcontent');
+				for (let i = 0; i < tabcontent.length; i++) {
+					tabcontent[i].style.display = 'none';
+				}
+				tablinks = document.getElementsByClassName('tablinks');
+				for (let i = 0; i < tablinks.length; i++) {
+					tablinks[i].className = tablinks[i].className.replace(' active', '');
+				}
+				document.getElementById(cipherName).style.display = 'block';
+				evt.currentTarget.className += ' active';
+			}
+		</script>
+		<script src="resources/js/script.js" type="module"></script>
 	</body>
 </html>
