@@ -1,12 +1,18 @@
 body {
-	font-family: Arial;
+	font-family: 'Courier New', Courier, monospace;
+	margin: 2em;
 }
-
+h1 {
+	margin-bottom: 0;
+}
+body > p {
+	margin: 5px 0 50px 0;
+}
 /* Style the tab */
 .tab {
 	overflow: hidden;
-	border: 1px solid #ccc;
-	background-color: #f1f1f1;
+	border: 1px solid #ddd;
+	background-color: black;
 }
 
 /* Style the buttons inside the tab */
@@ -19,6 +25,7 @@ body {
 	padding: 14px 16px;
 	transition: 0.3s;
 	font-size: 17px;
+	color: white;
 }
 
 /* Change background color of buttons on hover */
@@ -28,14 +35,71 @@ body {
 
 /* Create an active/current tablink class */
 .tab button.active {
-	background-color: rgb(204, 51, 51);
+	background-color: rgb(139, 13, 13);
 }
 
 /* Style the tab content */
 .tabcontent {
 	display: none;
-	min-height: 70vh;
-	padding: 6px 12px;
+	min-height: 68vh;
+	padding: 10px 30px 0px 30px;
 	border: 1px solid rgb(211, 208, 208);
 	border-top: none;
+	box-shadow: 5px 0px 10px grey;
+}
+.option-area {
+	display: flex;
+	flex-direction: row;
+	margin: 25px 0px;
+}
+.option-input {
+	display: flex;
+	flex-direction: row;
+	padding-right: 50px;
+}
+.option-input label {
+	color: white;
+	background-color: rgb(139, 13, 13);
+	width: 150px;
+	padding-top: 15px;
+	margin-right: -2px;
+	z-index: 10;
+	text-align: center;
+}
+input {
+	text-align: right;
+	width: 200px;
+	height: 44px;
+	padding-right: 10px;
+	font-family: monospace;
+}
+select {
+	width: 200px;
+	height: 50px;
+	direction: rtl;
+	padding-right: 10px;
+	font-family: monospace;
+}
+.msg-area {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin: 30px 0px;
+}
+textarea {
+	margin-top: 10px;
+	padding: 1em;
+}
+#Rot .option-area {
+	display: flex;
+	justify-content: flex-end;
+}
+#Rot .option-area button {
+	font-family: 'Courier New', Courier, monospace;
+	font-weight: bolder;
+	font-size: 16px;
+	color: white;
+	background-color: rgb(139, 13, 13);
+	border: none;
+	width: 150px;
 }

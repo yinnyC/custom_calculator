@@ -13,10 +13,7 @@
 		</p>
 		<div class="tab">
 			<button class="tablinks" onclick="openTab(event,'Caesar')">Caesar</button>
-			<button class="tablinks" onclick="openTab(event,'Rot')">Rot</button>
-			<button class="tablinks" onclick="openTab(event,'Polybius')">
-				Polybius
-			</button>
+			<button class="tablinks" onclick="openTab(event,'Rot')">Rot13</button>
 		</div>
 		<div id="Caesar" class="tabcontent" style="display: block">
 			<h2>Caesar Cipher</h2>
@@ -27,31 +24,44 @@
 				alphabet.
 			</p>
 			<form>
-				<label>Action</label><br />
-				<select id="caesar-action">
-					<option value="decode">Decode</option>
-					<option value="encode">Encode</option></select
-				><br />
-				<label>Shift</label><br />
-				<input
-					type="number"
-					min="1"
-					max="26"
-					id="caesar-shift"
-					value="13"
-				/><br />
-				<label>Message</label><br />
-				<textarea data-name="caesar" cols="50" rows="5" id="caesar-msg">
+				<div class="option-area">
+					<div class="option-input">
+						<label>Action</label><br />
+						<select id="caesar-action">
+							<option value="decode">Decode</option>
+							<option value="encode">Encode</option></select
+						><br />
+					</div>
+					<div class="option-input">
+						<label>Shift</label><br />
+						<input
+							type="number"
+							min="1"
+							max="26"
+							id="caesar-shift"
+							value="13"
+						/><br />
+					</div>
+				</div>
+
+				<div class="msg-area">
+					<div class="msg-input">
+						<label>Message</label><br />
+						<textarea data-name="caesar" cols="75" rows="14" id="caesar-msg">
 Pnrfne Pvcure</textarea
-				><br />
-				<label>Result</label><br />
-				<textarea
-					data-name="caesar"
-					cols="50"
-					rows="5"
-					id="caesar-result"
-					disabled
-				></textarea>
+						><br />
+					</div>
+					<div class="msg-input">
+						<label>Result</label><br />
+						<textarea
+							data-name="caesar"
+							cols="75"
+							rows="14"
+							id="caesar-result"
+							disabled
+						></textarea>
+					</div>
+				</div>
 			</form>
 		</div>
 		<div id="Rot" class="tabcontent">
@@ -61,9 +71,37 @@ Pnrfne Pvcure</textarea
 				of the Caesar cipher, where the shift is equal to 13, this allow the
 				cipher to be reciprocal.
 			</p>
-			<form></form>
+			<form>
+				<div class="msg-area">
+					<div class="msg-input">
+						<label>Message</label><br />
+						<textarea data-name="rot" cols="75" rows="14" id="rot-msg">
+Pnrfne Pvcure</textarea
+						><br />
+					</div>
+					<div class="msg-input">
+						<label>Result</label><br />
+						<textarea
+							data-name="rot"
+							cols="75"
+							rows="14"
+							id="rot-result"
+							disabled
+						></textarea>
+					</div>
+				</div>
+				<div class="option-area">
+					<div class="option-input">
+						<label>Action</label><br />
+						<select id="rot-action">
+							<option value="decode">Decode</option>
+							<option value="encode">Encode</option></select
+						><br />
+					</div>
+					<button id="submit-rot" type="button">submit</button>
+				</div>
+			</form>
 		</div>
-		<div id="Polybius" class="tabcontent"></div>
 		<script>
 			// ******Tabs ******************************************************
 			function openTab(evt, cipherName) {
